@@ -1,0 +1,9 @@
+---------------------------------------------------------------------------------------------------
+Version: 0.0.1
+Date: 2022-08-05
+  Features:
+    - Alpha release. Adds salt, chlorine, and more.
+    - Compatible with Krastorio 2
+    - Compatible with Space Exploration
+    - Compatible with deadlock stacking/crating
+    - Compatible with many other mods

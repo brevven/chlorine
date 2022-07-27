@@ -1,0 +1,25 @@
+{
+    "name": "bzchlorine",
+    "version": "0.1.0",
+    "factorio_version": "1.1",
+    "title": "Salt & Chlorine",
+    "author": "Brevven",
+    "contact": "",
+    "homepage": "",
+    "dependencies": [
+      "base >= 1.1.0",
+      "? bzfoundry >= 0.2.1",
+      "? bztitanium >= 1.2.0",
+      "? bzlead >= 1.2.0",
+      "? bzzirconium >= 0.6.0",
+      "? bztungsten >= 0.6.0",
+      "? bzcarbon >= 0.3.0",
+      "? space-exploration >= 0.5.100",
+      "? aai-industry",
+      "? Krastorio2",
+      "? sand-and-glass",
+      "? deadlock-beltboxes-loaders",
+      "? DeadlockCrating"
+    ],
+    "description": "Adds salt, chlorine and more to the base game. Reworks advanced circuit production.\n\nCompatible with Krastorio 2 and Space Exploration. A standalone piece of BZ Mods."
+}
