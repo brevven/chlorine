@@ -3,6 +3,10 @@ local me = {}
 me.name = "bzchlorine"
 me.list = {}
 
+function me.salt() 
+  return me.get_setting("bzchlorine-salt")
+end
+
 function me.get_setting(name)
   if settings.startup[name] == nil then
     return nil
