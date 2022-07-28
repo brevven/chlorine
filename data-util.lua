@@ -282,27 +282,29 @@ function add_product(recipe, product)
   end
 end
 
-function util.replace_ingredient_add_to(recipe_name, old, new)
-  if me.bypass[recipe_name] then return end
-  if data.raw.recipe[recipe_name] and (data.raw.item[new] or data.raw.fluid[new]) then
-    me.add_modified(recipe_name)
-    replace_ingredient_add_to(data.raw.recipe[recipe_name], old, new)
-    replace_ingredient_add_to(data.raw.recipe[recipe_name].normal, old, new)
-    replace_ingredient_add_to(data.raw.recipe[recipe_name].expensive, old, new)
-  end
-end
-
-function replace_ingredient_add_to(recipe, old, new)
-	if recipe ~= nil and recipe.ingredients ~= nil then
-    for i, existing in pairs(recipe.ingredients) do
-      if existing[1] == new or existing.name == new then
-        add_to_ingredient(recipe, new, existing[2] and existing[2] or existing.amount)
-        remove_ingredient(recipe, old)
-        return
+-- Get the amount of the result, will check base/normal not expensive
+function util.get_amount(recipe_name, product)
+  if not product then product = recipe_name end
+  local recipe = data.raw.recipe[recipe_name]
+  if recipe then
+    if recipe.normal and recipe.normal.results then
+      for i, result in pairs(recipe.normal.results) do
+        if result[1] == product then return result[2] end
+        if result.name == product then return result.amount end
       end
+    elseif recipe.normal and recipe.normal.result_count then
+      return recipe.normal.result_count
+    elseif recipe.results then
+      for i, result in pairs(recipe.results) do
+        if result[1] == product then return result[2] end
+        if result.name == product then return result.amount end
+      end
+    elseif recipe.result_count then
+      return recipe.result_count
     end
-    replace_ingredient(recipe, old, new)
-	end
+    return 1
+  end
+  return 0
 end
 
 -- Replace one ingredient with another in a recipe
