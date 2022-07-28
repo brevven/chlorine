@@ -14,6 +14,7 @@
       "? bzzirconium >= 0.6.0",
       "? bztungsten >= 0.6.0",
       "? bzcarbon >= 0.3.0",
+      "? bzgas",
       "? space-exploration >= 0.5.100",
       "? aai-industry",
       "? Krastorio2",
