@@ -12,7 +12,8 @@ See changelog.txt
 - [brevven](https://mods.factorio.com/user/brevven) (code, design, graphics)
 
 ## Thanks to 
-- [snouz](https://github.com/snouz) (logo inspiration, ore graphics templates)
+- [Benjah-bmm27](https://commons.wikimedia.org/wiki/File:Vinyl-chloride-3D-vdW.png) (vinyl chloride icon)
+- [snouz](https://github.com/snouz) (logo inspiration)
 
 ### Localization
 
