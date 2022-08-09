@@ -3,6 +3,11 @@ local me = {}
 me.name = "bzchlorine"
 me.list = {}
 
+function me.more() 
+  if me.get_setting("bz-all-intermediates") then return true end
+  return me.get_setting("bzchlorine-more-intermediates") == "yes"
+end
+
 function me.salt() 
   return me.get_setting("bzchlorine-salt")
 end

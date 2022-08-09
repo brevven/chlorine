@@ -29,7 +29,7 @@ data:extend({
     },
     enabled = false,
     category = "chemistry",
-    energy_requires = 3,
+    energy_required = 3,
   },
 })
 

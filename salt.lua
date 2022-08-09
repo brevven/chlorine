@@ -109,10 +109,14 @@ data:extend({
     type = "recipe",
     name = "salt",
     result = "salt",
-    ingredients = {{type="fluid", name="water", amount=10}},
+    ingredients = {{type="fluid", name="water", amount=100}},
     enabled = false,
-    category = "crafting-with-fluid",
-    energy_requires = 2,
+    category = mods.Krastorio2 and "fluid-filtration" or "crafting-with-fluid",
+    energy_required = mods.Krastorio2 and 1 or 2,
   },
 })
-util.add_unlock("fluid-handling", "salt")
+if mods.Krastorio2 then
+  util.add_unlock("kr-fluids-chemistry", "salt")
+else
+  util.add_unlock("fluid-handling", "salt")
+end

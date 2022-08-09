@@ -1,5 +1,6 @@
 local util = require("data-util");
 
+if not mods.Krastorio2 then
 data:extend({
   {
     type = "fluid",
@@ -23,17 +24,35 @@ data:extend({
     icon_size = 128,
     order = "a[fluid]-f[chlorine-h]",
   },
+})
+end
+
+if util.me.more() then
+data:extend({
   {
     type = "item",
     name = "ferric-chloride",
-    icon = "__bztin__/graphics/icons/solder.png", -- FIX
-    icon_size = 128,
+    icon = "__bzchlorine__/graphics/icons/ferric-chloride.png",
+    icon_size = 64, icon_mipmaps = 4,
     subgroup = "raw-material",
     order = "b[chlorine-fe]",
     stack_size = util.get_stack_size(100),
   },
+  {
+    type = "fluid",
+    name = "vinyl-chloride",
+    default_temperature = 25,
+    heat_capacity = "0.1KJ",
+    base_color = {r=0.90, g=0.90, b=0.75},
+    flow_color = {r=0.90, g=1.00, b=0.75},
+    icon = "__bzchlorine__/graphics/icons/vinyl-chloride.png",
+    icon_size = 128,
+    order = "a[fluid]-f[chlorine-v]",
+  },
 })
+end
 
+if not mods.Krastorio2 then
 data:extend({
   {
     type = "recipe",
@@ -42,20 +61,7 @@ data:extend({
     ingredients = {{"salt", 2}},
     enabled = false,
     category = "chemistry",
-    energy_requires = 3,
-  },
-  {
-    type = "recipe",
-    name = "hydrogen-chloride",
-    results = {{type="fluid", name="hydrogen-chloride", amount=10}},
-    ingredients = {
-      {"salt", 1},
-      {type="fluid", name="water", amount=5},
-      {type="fluid", name="sulfuric-acid", amount=5},
-    },
-    enabled = false,
-    category = "chemistry",
-    energy_requires = 1,
+    energy_required = 0.5,
   },
   {
     type = "recipe",
@@ -67,8 +73,30 @@ data:extend({
     },
     enabled = false,
     category = "chemistry",
-    energy_requires = 10,
+    energy_required = 10,
   },
+})
+else
+  util.replace_ingredient("kr-water-electrolysis", "sand", "salt", 2)
+end
+data:extend({
+  {
+    type = "recipe",
+    name = "hydrogen-chloride-salt",
+    results = {{type="fluid", name="hydrogen-chloride", amount=10}},
+    ingredients = {
+      {"salt", 1},
+      {type="fluid", name="water", amount=5},
+      {type="fluid", name="sulfuric-acid", amount=5},
+    },
+    enabled = false,
+    category = "chemistry",
+    energy_required = 1,
+  },
+})
+
+if util.me.more() then
+data:extend({
   {
     type = "recipe",
     name = "ferric-chloride",
@@ -79,10 +107,25 @@ data:extend({
     },
     enabled = false,
     category = "chemistry",
-    energy_requires = 3,
+    energy_required = 3,
+  },
+  {
+    type = "recipe",
+    name = "vinyl-chloride",
+    results = {{type="fluid", name="vinyl-chloride", amount=20}},
+    ingredients = {
+      {type="fluid", name="chlorine", amount=10},
+      {type="fluid", name="petroleum-gas", amount=20},
+    },
+    enabled = false,
+    category = "chemistry",
+    energy_required = 3,
   },
 })
+end
+util.add_unlock("plastics", "vinyl-chloride")
 
+if not mods.Krastorio2 then
 data:extend({
   {
     type="technology",
@@ -91,10 +134,8 @@ data:extend({
     icon_size = 128,
     effects = {
       { type = "unlock-recipe", recipe = "chlorine" },
-      { type = "unlock-recipe", recipe = "hydrogen-chloride" },
+      { type = "unlock-recipe", recipe = "hydrogen-chloride-salt" },
       { type = "unlock-recipe", recipe = "hydrogen-chloride-pure" },
-      { type = "unlock-recipe", recipe = "ferric-chloride" },
-      { type = "unlock-recipe", recipe = "chemical-plant" },
     },
     unit = {
       count = 70, time = 30,
@@ -103,3 +144,38 @@ data:extend({
     prerequisites = {"fluid-handling"},
   },
 })
+util.add_unlock("salt-processing", "ferric-chloride")
+util.add_unlock("fluid-handling", "chemical-plant")
+util.remove_recipe_effect("oil-processing", "chemical-plant")
+else
+  util.add_unlock("fluids-chemistry", "ferric-chloride")
+  util.add_unlock("fluids-chemistry", "hydrogen-chloride-salt")
+end
+
+if mods.bzgas then
+  data:extend({
+    {
+      type="recipe",
+      name="bakelite-hcl",
+      results = {{"bakelite", 3}},
+      ingredients = {
+        {"phenol", 1},
+        {type="fluid", name="formaldehyde", amount=10},
+        {type="fluid", name="hydrogen-chloride", amount=5},
+      },
+      icons = {
+        {icon = "__bzgas__/graphics/icons/bakelite.png", icon_size=128},
+        {icon = "__bzchlorine__/graphics/icons/hcl.png", icon_size=128, scale=0.125, shift={-8,-8}},
+      },
+      enabled = false,
+      category = "chemistry",
+      energy_required = 3,
+    }
+  })
+  if mods.Krastorio2 then
+    util.add_unlock("advanced-chemistry", "bakelite-hcl")
+  else
+    util.add_unlock("salt-processing", "bakelite-hcl")
+  end
+end
+

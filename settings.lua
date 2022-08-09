@@ -16,7 +16,7 @@ data:extend({
     type = "bool-setting",
     name = "bzchlorine-salt",
 		setting_type = "startup",
-    default_value = false,
+    default_value = true,
   },
   {
 		type = "string-setting",

@@ -21,35 +21,38 @@ data:extend({
   },
 
 })
+
+local amount = mods.Krastorio2 and 2 or 1
 data:extend({
   {
     type = "recipe",
     name = "pcb-substrate",
     results = {
-      {"pcb-substrate", 1},
+      {"pcb-substrate", 6},
     },
     ingredients = {
-      {type="fluid", name="epoxy", amount=10},
+      {type="fluid", name="epoxy", amount=30},
       {"plastic-bar", 3},
     },
     enabled = false,
     category = "chemistry",
-    energy_requires = 3,
+    energy_required = 6,
   },
   {
     type = "recipe",
     name = "pcb",
     results = {
-      {"pcb", 1},
+      {"pcb", amount},
     },
     ingredients = {
-      {"pcb-substrate", 1},
+      {"pcb-substrate", amount},
       {"copper-plate", 1},
-      {"ferric-chloride", 1},
+      util.me.more() and {"ferric-chloride", 1} or {type="fluid", name="hydrogen-chloride", amount=10},
+      {type="fluid", name="water", amount=10},
     },
     enabled = false,
-    category = "chemistry",
-    energy_requires = 3,
+    category = "crafting-with-fluid",
+    energy_required = amount,
   },
 })
 
@@ -59,4 +62,3 @@ util.add_unlock("advanced-electronics", "pcb")
 -- These updates should be in data phase
 util.replace_some_ingredient("pcb-substrate", "plastic-bar", 1, "silica", 3)
 util.replace_some_ingredient("pcb-substrate", "plastic-bar", 1, "bakelite", 1)
-util.replace_ingredient("advanced-circuit", "plastic-bar", "pcb", 1)
