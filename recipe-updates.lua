@@ -24,6 +24,7 @@ end
 
 
 
+util.replace_some_ingredient("shotgun-shell", "stone", 1, "salt", 1)
 util.add_ingredient("pumpjack", "salt", 10)
 util.add_ingredient("kr-mineral-water-pumpjack", "salt", 10)
 util.add_ingredient("uranium-processing", "salt", 1)
