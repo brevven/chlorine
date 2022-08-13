@@ -28,9 +28,8 @@ util.replace_some_ingredient("shotgun-shell", "stone", 1, "salt", 1)
 util.add_ingredient("pumpjack", "salt", 10)
 util.add_ingredient("kr-mineral-water-pumpjack", "salt", 10)
 util.add_ingredient("uranium-processing", "salt", 1)
--- TODO if foundry or K2, salt for steel
-if mods.Krastorio2 or data.raw.item["foundry"] then
-  util.replace_some_ingredient("steel", "iron-plate", 1, "salt", 1)
+if mods.Krastorio2 or util.is_foundry() then
+  util.replace_some_ingredient("steel-plate", "iron-plate", 1, "salt", 1)
 end
 util.add_ingredient("kr-biomass-growing", "salt", 1)
 util.add_ingredient("kr-energy-storage", "ferric-chloride", 10)
