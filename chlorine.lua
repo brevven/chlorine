@@ -66,7 +66,7 @@ data:extend({
   {
     type = "recipe",
     name = "hydrogen-chloride-pure",
-    results = {{type="fluid", name="hydrogen-chloride", amount=10}},
+    results = {{type="fluid", name="hydrogen-chloride", amount=20}},
     ingredients = {
       {type="fluid", name="water", amount=10},
       {type="fluid", name="chlorine", amount=10},

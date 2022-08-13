@@ -22,7 +22,6 @@ data:extend({
 
 })
 
-local amount = mods.Krastorio2 and 2 or 1
 data:extend({
   {
     type = "recipe",
@@ -42,17 +41,17 @@ data:extend({
     type = "recipe",
     name = "pcb",
     results = {
-      {"pcb", amount},
+      {"pcb", 2},
     },
     ingredients = {
-      {"pcb-substrate", amount},
-      {"copper-plate", 1},
-      util.me.more() and {"ferric-chloride", 1} or {type="fluid", name="hydrogen-chloride", amount=10},
+      {"pcb-substrate", 2},
+      {"copper-plate", 2},
+      util.me.more() and {"ferric-chloride", 1} or {type="fluid", name="hydrogen-chloride", amount=15},
       {type="fluid", name="water", amount=10},
     },
     enabled = false,
     category = "crafting-with-fluid",
-    energy_required = amount,
+    energy_required = 4,
   },
 })
 
