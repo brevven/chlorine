@@ -100,6 +100,7 @@ data:extend({
       {filename="__bzchlorine__/graphics/icons/salt-1.png", size=128, scale=0.125},
       {filename="__bzchlorine__/graphics/icons/salt-2.png", size=128, scale=0.125},
       {filename="__bzchlorine__/graphics/icons/salt-3.png", size=128, scale=0.125},
+      {filename="__bzchlorine__/graphics/icons/salt-4.png", size=128, scale=0.125},
     },
     subgroup = "raw-resource",
     order = "t-c-a",
