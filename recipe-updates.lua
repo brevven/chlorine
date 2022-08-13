@@ -50,4 +50,7 @@ util.replace_some_ingredient("se-vitamelange-bloom", "sand", 10, "salt", 2)
 util.add_ingredient("se-nutrient-gel", "salt", 1)
 util.add_ingredient("se-vitalic-epoxy", "epoxy", 16)
 
--- TODO decontamintaion (chlorine or ferric chloride or what)
+util.multiply_recipe("se-space-water", 10)
+util.replace_some_ingredient("se-space-water", "water", 10, "salt", 1)
+util.add_ingredient("se-bio-sludge-decontamination", "chlorine", 1)
+util.add_ingredient("se-bio-electrics-data", "salt", 1)
