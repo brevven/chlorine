@@ -1,7 +1,6 @@
 -- Enable prod modules for some recipes
 -- Recipes with very specific ratios are deliberately excluded
-
-recipes = {"chlorine", "epoxy", "pcb-substrate", "vinyl-chloride", "bakelite-hcl"}
+recipes = {"chlorine", "epoxy", "pcb-substrate", "bakelite-hcl"}
 if mods["Krastorio2"] then
 end
 
