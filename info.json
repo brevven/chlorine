@@ -18,6 +18,8 @@
       "? space-exploration >= 0.5.100",
       "? aai-industry",
       "? Krastorio2",
+      "? bobelectronics",
+      "? MDbobelectronics",
       "? deadlock-beltboxes-loaders",
       "? DeadlockCrating"
     ],

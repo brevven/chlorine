@@ -4,6 +4,7 @@ require("recipe-updates")
 require("map-gen-preset-updates")
 -- require("strange-matter")
 -- require("compatibility/248k")
+require("compatibility/bob")
 
 local util = require("data-util");
 
