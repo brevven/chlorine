@@ -34,4 +34,4 @@ data:extend({
 })
 
 util.add_unlock("plastics", "epoxy")
-util.add_prerequisite("plastics", "salt-processing")
+util.add_prerequisite("plastics", "chlorine-processing")

@@ -129,7 +129,7 @@ if not mods.Krastorio2 then
 data:extend({
   {
     type="technology",
-    name="salt-processing",
+    name="chlorine-processing",
     icon = "__bzchlorine__/graphics/icons/chlorine.png", -- FIX
     icon_size = 128,
     effects = {
@@ -144,7 +144,7 @@ data:extend({
     prerequisites = {"fluid-handling"},
   },
 })
-util.add_unlock("salt-processing", "ferric-chloride")
+util.add_unlock("chlorine-processing", "ferric-chloride")
 util.add_unlock("fluid-handling", "chemical-plant")
 util.remove_recipe_effect("oil-processing", "chemical-plant")
 else
@@ -175,7 +175,7 @@ if mods.bzgas then
   if mods.Krastorio2 then
     util.add_unlock("advanced-chemistry", "bakelite-hcl")
   else
-    util.add_unlock("salt-processing", "bakelite-hcl")
+    util.add_unlock("chlorine-processing", "bakelite-hcl")
   end
 end
 
