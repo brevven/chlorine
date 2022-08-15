@@ -148,8 +148,8 @@ util.add_unlock("chlorine-processing", "ferric-chloride")
 util.add_unlock("fluid-handling", "chemical-plant")
 util.remove_recipe_effect("oil-processing", "chemical-plant")
 else
-  util.add_unlock("fluids-chemistry", "ferric-chloride")
-  util.add_unlock("fluids-chemistry", "hydrogen-chloride-salt")
+  util.add_unlock("kr-fluids-chemistry", "ferric-chloride")
+  util.add_unlock("kr-fluids-chemistry", "hydrogen-chloride-salt")
 end
 
 if mods.bzgas then
