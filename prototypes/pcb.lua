@@ -10,6 +10,9 @@ data:extend({
     order = "f[advanced-circuit][pcb-substrate]",
     stack_size = util.get_stack_size(200),
   },
+})
+if (not mods.bobelectronics and not mods.MDbobelectronics) then
+data:extend({
   {
     type = "item",
     name = "pcb",
@@ -21,6 +24,7 @@ data:extend({
   },
 
 })
+end
 
 data:extend({
   {
@@ -37,6 +41,14 @@ data:extend({
     category = "chemistry",
     energy_required = 6,
   },
+})
+util.add_unlock("advanced-electronics", "pcb-substrate")
+-- These updates should be in data phase
+util.replace_some_ingredient("pcb-substrate", "plastic-bar", 1, "silica", 3, {force=true})
+util.replace_some_ingredient("pcb-substrate", "plastic-bar", 1, "bakelite", 1, {force=true})
+
+if (not mods.bobelectronics and not mods.MDbobelectronics) then
+data:extend({
   {
     type = "recipe",
     name = "pcb",
@@ -55,9 +67,6 @@ data:extend({
   },
 })
 
-util.add_unlock("advanced-electronics", "pcb-substrate")
 util.add_unlock("advanced-electronics", "pcb")
 
--- These updates should be in data phase
-util.replace_some_ingredient("pcb-substrate", "plastic-bar", 1, "silica", 3)
-util.replace_some_ingredient("pcb-substrate", "plastic-bar", 1, "bakelite", 1)
+end
