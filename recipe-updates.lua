@@ -37,12 +37,12 @@ util.add_ingredient("kr-energy-storage", "ferric-chloride", 10)
 -- Space Exploration
 util.add_ingredient("aluminum-ingot", "salt", 2) -- bzaluminum
 if not mods.Krastorio2 then -- consider this handled in enrichment
-  util.add_ingredient("molten-titanium", "chlorine", 20, true)
+  util.add_ingredient("molten-titanium", "chlorine", 20)
   util.add_product("molten-titanium", {type="fluid", name="chlorine", amount=19, catalyst_amount=19})
   util.set_main_product("molten-titanium", "molten-titanium")
 end
 util.add_ingredient("se-steel-ingot", "salt", 2)
-util.add_ingredient("se-iridium-powder", "chlorine", 20, true)
+util.add_ingredient("se-iridium-powder", "chlorine", 20)
 util.add_product("se-iridium-powder", {type="fluid", name="chlorine", amount=19, catalyst_amount=19})
 
 
