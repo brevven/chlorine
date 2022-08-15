@@ -1,7 +1,7 @@
-require("salt")
-require("chlorine")
-require("epoxy")
-require("pcb")
+require("prototypes/salt")
+require("prototypes/chlorine")
+require("prototypes/epoxy")
+require("prototypes/pcb")
 -- require("tin-recipe")
 -- require("tin-enriched")   -- Enriched Al for Krastorio 2
 -- require("tin-recipe-se")         -- Space Exploration
