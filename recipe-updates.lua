@@ -4,6 +4,11 @@ if mods.Krastorio2 then
   local amt = util.get_amount("electronic-components")
   util.add_ingredient("electronic-components", "pcb", amt)
   util.remove_ingredient("electronic-components", "plastic-bar")
+
+  amt = util.get_amount("kr-s-c-electronic-components")
+  util.add_ingredient("kr-s-c-electronic-components", "pcb", amt)
+  util.remove_ingredient("kr-s-c-electronic-components", "plastic-bar")
+
   local amt_ac = util.get_amount("advanced-circuit")
   util.set_ingredient("advanced-circuit", "copper-cable", amt_ac)
 else
