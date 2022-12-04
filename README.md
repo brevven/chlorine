@@ -1,4 +1,4 @@
-# Chlorine
+# Salt & Chlorine
 
 [factorio mod page](https://mods.factorio.com/mod/bzchlorine)
 

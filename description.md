@@ -4,7 +4,7 @@
 
 Adds salt, chlorine, and other compounds to the game. Changes advanced circuit production and several other things.
 
-This mod adds more complexity to a vanailla factorio game. It pairs well with any other BZ mods, including [the electronics modpack](https://mods.factorio.com/mod/bzbelectronics). As always, the more BZ mods you add the more complex the game will become. 
+This mod adds more complexity to a vanailla factorio game. It pairs well with any other BZ mods, including [the electronics modpack](https://mods.factorio.com/mod/bzbelectronics). With Graphite & Diamonds, carbon fiber is enabled as well. As always, the more BZ mods you add the more complex the game will become. 
 
 Supported compatible mods:
 
