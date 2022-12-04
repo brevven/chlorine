@@ -22,8 +22,6 @@ if util.me.more() then
 end
 
 
-
-
 util.replace_some_ingredient("shotgun-shell", "stone", 1, "salt", 1)
 util.add_ingredient("pumpjack", "salt", 10)
 util.add_ingredient("kr-mineral-water-pumpjack", "salt", 10)
@@ -45,8 +43,7 @@ util.add_ingredient("se-steel-ingot", "salt", 2)
 util.add_ingredient("se-iridium-powder", "chlorine", 20)
 util.add_product("se-iridium-powder", {type="fluid", name="chlorine", amount=19, catalyst_amount=19})
 
-
-util.replace_some_ingredient("se-vitamelange-bloom", "sand", 10, "salt", 2)
+util.replace_some_ingredient("se-vitamelange-bloom", "sand", 10, "salt", 1)
 util.add_ingredient("se-nutrient-gel", "salt", 1)
 util.add_ingredient("se-vitalic-epoxy", "epoxy", 16)
 
@@ -54,3 +51,7 @@ util.multiply_recipe("se-space-water", 10)
 util.replace_some_ingredient("se-space-water", "water", 10, "salt", 1)
 util.add_ingredient("se-bio-sludge-decontamination", "chlorine", 1)
 util.add_ingredient("se-bio-electrics-data", "salt", 1)
+
+util.add_ingredient("se-holmium-chloride", "hydrogen-chloride", 2)
+
+util.add_ingredient("shiveros_advanced_uranium_reprocessing", "salt", 1)

@@ -111,6 +111,22 @@ data:extend({
   },
   {
     type = "recipe",
+    name = "ferric-chloride-hcl",
+    results = {{"ferric-chloride", 4}},
+    icons = {
+        {icon = "__bzchlorine__/graphics/icons/ferric-chloride.png", icon_size=64, scale=1},
+        {icon = "__bzchlorine__/graphics/icons/hcl.png", icon_size=128, scale=0.25, shift={8,-8}},
+    },
+    ingredients = {
+      {"iron-ore", 1},
+      {type="fluid", name="hydrogen-chloride", amount=120},
+    },
+    enabled = false,
+    category = "chemistry",
+    energy_required = 3,
+  },
+  {
+    type = "recipe",
     name = "vinyl-chloride",
     results = {{type="fluid", name="vinyl-chloride", amount=20}},
     ingredients = {
@@ -130,8 +146,9 @@ data:extend({
   {
     type="technology",
     name="chlorine-processing",
-    icon = "__bzchlorine__/graphics/icons/chlorine.png", -- FIX
-    icon_size = 128,
+    icons = {
+      {icon = "__bzchlorine__/graphics/technology/salt-tech.png", icon_size = 256, tint={a=.75,r=1,b=1,g=1} },
+    },
     effects = {
       { type = "unlock-recipe", recipe = "chlorine" },
       { type = "unlock-recipe", recipe = "hydrogen-chloride-salt" },
@@ -145,10 +162,12 @@ data:extend({
   },
 })
 util.add_unlock("chlorine-processing", "ferric-chloride")
+util.add_unlock("chlorine-processing", "ferric-chloride-hcl")
 util.add_unlock("fluid-handling", "chemical-plant")
 util.remove_recipe_effect("oil-processing", "chemical-plant")
 else
   util.add_unlock("kr-fluids-chemistry", "ferric-chloride")
+  util.add_unlock("kr-fluids-chemistry", "ferric-chloride-hcl")
   util.add_unlock("kr-fluids-chemistry", "hydrogen-chloride-salt")
 end
 

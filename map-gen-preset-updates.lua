@@ -1,4 +1,4 @@
-if data.raw["map-gen-presets"] and data.raw["map-gen-presets"].default then
+if data.raw["autoplace-control"]["salt"] and data.raw["map-gen-presets"] and data.raw["map-gen-presets"].default then
   for name, preset in pairs(data.raw["map-gen-presets"].default) do 
     if type(preset) == "table" and 
     preset.basic_settings and 

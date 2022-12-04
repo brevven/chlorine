@@ -1,9 +1,21 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.0.2
+Date: 2022-12-04
+  Features:
+    - When used with Graphite & Diamonds, carbon fiber is enabled
+  Changes:
+    - Some recipe tweaks and changes, including an alternate ferric chloride recipe.
+  Fixes:
+    - Fix load issue when salt patches are turned off.
+---------------------------------------------------------------------------------------------------
 Version: 0.0.1
 Date: 2022-08-05
   Features:
-    - Alpha release. Adds salt, chlorine, and more.
+    - Alpha release.
+    - Adds salt, chlorine, hydrogen chloride, epoxy, printed circuit boards and more.
+    - Optionally adds ferric chloride and vinyl chloride
     - Compatible with Krastorio 2
     - Compatible with Space Exploration
+    - Compatible with Bob's Electronics
     - Compatible with deadlock stacking/crating
     - Compatible with many other mods

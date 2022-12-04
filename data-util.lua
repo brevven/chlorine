@@ -1,6 +1,7 @@
 -- WARNING WARNING WARNING
 -- This file will be overwritten in mod zipfiles, edit bzlib/data-util.lua
 -- WARNING WARNING WARNING
+--
 
 local me = require("me")
 local util = {}
@@ -89,6 +90,163 @@ function util.contains(table, sought)
   return false
 end
 
+
+-- se landfill
+-- params: ore, icon_size
+function util.se_landfill(params)
+  if mods["space-exploration"] then
+    if not params.icon_size then params.icon_size = 64 end
+    local lname="landfill-"..params.ore
+    data:extend({
+      {
+        type = "recipe",
+        icons = {
+          { icon = "__base__/graphics/icons/landfill.png", icon_size = 64, icon_mipmaps = 3 },
+          { icon = "__"..me.name.."__/graphics/icons/"..params.ore..".png", icon_size = params.icon_size, scale = 0.33*64/params.icon_size},
+        },
+        energy_required = 1,
+        enabled=false,
+        name = lname,
+        category = "hard-recycling",
+        order = "z-b-"..params.ore,
+        subgroup = "terrain",
+        result = "landfill",
+        ingredients = {{params.ore, 50}},
+      }
+    })
+    util.add_unlock("se-recycling-facility", lname)
+  end
+end
+
+-- se matter
+-- params: ore, energy_required, quant_out, quant_in, icon_size, stream_out
+function util.se_matter(params)
+  if mods["space-exploration"] > "0.6" then
+    if not params.quant_in then params.quant_in = params.quant_out end
+    if not params.icon_size then params.icon_size = 64 end
+    local fname = "matter-fusion-"..params.ore
+    local sedata = mods.Krastorio2 and "se-kr-matter-synthesis-data" or "se-fusion-test-data"
+    local sejunk = mods.Krastorio2 and "se-broken-data" or "se-junk-data"
+    data:extend({
+      {
+        type = "recipe",
+        name = fname,
+        localised_name = {"recipe-name.se-matter-fusion-to", {"item-name."..params.ore}},
+        category = "space-materialisation",
+        subgroup = "materialisation",
+        order = "a-b-z",
+        icons = {
+          {icon = "__space-exploration-graphics__/graphics/blank.png",
+           icon_size = 64, scale = 0.5},
+          {icon = "__space-exploration-graphics__/graphics/icons/fluid/particle-stream.png",
+           icon_size = 64,  scale = 0.33, shift = {8,-8}},
+          {icon = "__"..util.me.name.."__/graphics/icons/"..params.ore..".png",
+           icon_size = params.icon_size, scale = 0.33 * 64/params.icon_size, shift={-8, 8}},
+          {icon = "__space-exploration-graphics__/graphics/icons/transition-arrow.png",
+           icon_size = 64, scale = 0.5},
+        },
+        energy_required = params.energy_required,
+        enabled = false,
+        ingredients = {
+          {sedata, 1},
+          {type="fluid", name="se-particle-stream", amount=50},
+          {type="fluid", name="se-space-coolant-supercooled", amount=25},
+        },
+        results = {
+          {params.ore, params.quant_out},
+          {"se-contaminated-scrap", 1},
+          {type=item, name=sedata, amount=1, probability=.99},
+          {type=item, name=sejunk, amount=1, probability=.01},
+          {type="fluid", name="se-space-coolant-hot", amount=25, catalyst_amount=25},
+        }
+      }
+    })
+    util.add_unlock("se-space-matter-fusion", fname) 
+
+    if mods.Krastorio2 then
+      local lname = params.ore.."-to-particle-stream"
+      data:extend({
+        enabled = false,
+        {
+          type = "recipe",
+          name = lname,
+          localised_name = {"recipe-name.se-kr-matter-liberation", {"item-name."..params.ore}},
+          category = "space-materialisation",
+          subgroup = "advanced-particle-stream",
+          order = "a-b-z",
+          icons = {
+            {icon = "__space-exploration-graphics__/graphics/blank.png",
+             icon_size = 64, scale = 0.5},
+            {icon = "__space-exploration-graphics__/graphics/icons/fluid/particle-stream.png",
+             icon_size = 64,  scale = 0.33, shift = {-8,8}},
+            {icon = "__"..util.me.name.."__/graphics/icons/"..params.ore..".png",
+             icon_size = params.icon_size, scale = 0.33 * 64/params.icon_size, shift={8, -8}},
+            {icon = "__space-exploration-graphics__/graphics/icons/transition-arrow.png",
+             icon_size = 64, scale = 0.5},
+          },
+          energy_required = 30,
+          enabled = false,
+          ingredients = {
+            {"se-kr-matter-liberation-data", 1},
+            {params.ore, params.quant_in},
+            {type="fluid", name="se-particle-stream", amount=50},
+          },
+          results = {
+            {type=item, name="se-kr-matter-liberation-data", amount=1, probability=.99},
+            {type=item, name=sejunk, amount=1, probability=.01},
+            {type="fluid", name="se-particle-stream", amount=params.stream_out, catalyst_amount=50},
+          }
+        }
+      })
+      if not data.raw.technology["bz-advanced-stream-production"] then
+        data:extend({
+          {
+            type = "technology",
+            name ="bz-advanced-stream-production",
+            localised_name = {"", {"technology-name.se-kr-advanced-stream-production"}, " 2"},
+            icon = "__space-exploration-graphics__/graphics/technology/material-fabricator.png",
+            icon_size = 128,
+            effects = {},
+            unit = {
+              count = 100,
+              time = 15,
+              ingredients = {
+                {"automation-science-pack", 1},
+                {"logistic-science-pack", 1},
+                {"chemical-science-pack", 1},
+                {"se-rocket-science-pack", 1},
+                {"space-science-pack", 1},
+                {"production-science-pack", 1},
+                {"utility-science-pack", 1},
+                {"se-astronomic-science-pack-4", 1},
+                {"se-energy-science-pack-4", 1},
+                {"se-material-science-pack-4", 1},
+                {"matter-tech-card", 1},
+                {"se-deep-space-science-pack-1", 1},
+              }
+              
+            },
+            prerequisites = {"se-kr-advanced-stream-production"},
+          },
+        })
+      end
+      util.add_unlock("bz-advanced-stream-production", lname) 
+    end
+  end
+end
+
+-- Get the normal prototype for a recipe -- either .normal or the recipe itself
+function util.get_normal(recipe_name)
+  if data.raw.recipe[recipe_name] then
+    recipe = data.raw.recipe[recipe_name]
+    if recipe.normal and recipe.normal.ingredients then
+      return recipe.normal
+    elseif recipe.ingredients then
+      return recipe
+    end
+  end
+end
+
 -- Set/override a technology's prerequisites
 function util.set_prerequisite(technology_name, prerequisites)
   local technology = data.raw.technology[technology_name]
@@ -107,6 +265,9 @@ function util.add_prerequisite(technology_name, prerequisite)
   local technology = data.raw.technology[technology_name]
   if technology and data.raw.technology[prerequisite] then
     if technology.prerequisites then
+      for i, pre in pairs(technology.prerequisites) do
+        if pre == prerequisite then return end
+      end
       table.insert(technology.prerequisites, prerequisite)
     else
       technology.prerequisites = {prerequisite}
@@ -772,9 +933,9 @@ function util.set_item_icons(item_name, icons)
   end
 end
 
-function util.set_to_founding(recipe)
-  util.set_category(recipe, "founding")
-  util.set_subgroup(recipe, "foundry-intermediate")
+function util.set_to_founding(recipe, options)
+  util.set_category(recipe, "founding", options)
+  util.set_subgroup(recipe, "foundry-intermediate", options)
 end
 
 -- Add crafting category to an entity
@@ -999,6 +1160,38 @@ function util.add_unlock_force(technology_name, recipe)
     util.set_enabled(recipe, false)
     util.remove_all_recipe_effects(recipe)
     util.add_unlock(technology_name, recipe)
+end
+
+-- sum the products of a recipe 
+function util.sum_products(recipe_name)
+  -- this is going to end up approximate in some cases, integer division is probs fine
+  if data.raw.recipe[recipe_name] then
+    local recipe = data.raw.recipe[recipe_name]
+    if not recipe.results then return recipe.result_count end
+    local sum = 0
+    for i, result in pairs(recipe.results) do
+      local amt = 0
+      if result[2] then amt = result[2]
+      elseif result.amount then amt = result.amount
+      elseif result.amount_min then amt = (result.amount_min + result.amount_max)/2
+      end
+      if result.probability then amt = amt * result.probability end
+      sum = sum + amt
+    end
+    return sum
+  end
+  return 0
+end
+
+function util.set_vtk_dcm_ingredients()
+  if mods["vtk-deep-core-mining"] then
+    local sum = util.sum_products("vtk-deepcore-mining-ore-chunk-refining")
+    log("setting vtk deepcore based on " .. serpent.dump(sum) .. " to " ..serpent.dump(sum*0.8))
+    util.set_ingredient("vtk-deepcore-mining-ore-chunk-refining", "vtk-deepcore-mining-ore-chunk", sum * 0.8)
+    local sum = 1+util.sum_products("vtk-deepcore-mining-ore-chunk-refining-no-uranium")
+    log("setting vtk deepcore no uranium to " .. serpent.dump(sum))
+    util.set_ingredient("vtk-deepcore-mining-ore-chunk-refining-no-uranium", "vtk-deepcore-mining-ore-chunk", sum)
+  end
 end
 
 return util

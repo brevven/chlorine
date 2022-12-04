@@ -15,6 +15,13 @@ See changelog.txt
 - [Benjah-bmm27](https://commons.wikimedia.org/wiki/File:Vinyl-chloride-3D-vdW.png) (vinyl chloride icon)
 - [snouz](https://github.com/snouz) (logo inspiration)
 
+
 ### Localization
+
+### Testing
+- Berkelear
+- [Sakuro](https://github.com/sakuro)
+- [Xynariz]()
+
 
 
