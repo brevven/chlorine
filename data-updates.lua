@@ -8,5 +8,8 @@ require("compatibility/bob")
 
 local util = require("data-util");
 
+
+require("modules")
+
 -- Must be last
 util.create_list()

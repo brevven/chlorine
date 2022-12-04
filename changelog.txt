@@ -2,8 +2,9 @@
 Version: 0.0.3
 Date: 2022-12-05
   Changes:
-    - K2: Alternate electronic component recipe uses PCB now. Note that the SE+K2 lithium recipe
-      cannot currently be modified in a reasonable fasion, so that one is still unchanged. 
+    - K2: Smelting-crafting electronic component recipe uses PCB now. Note that the SE+K2 lithium
+      recipe cannot currently be modified in a reasonable fasion, so that one is still unchanged. 
+      Will be updated as soon as able.
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.2
 Date: 2022-12-04
