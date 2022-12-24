@@ -60,5 +60,7 @@ util.add_ingredient("se-bio-sludge-decontamination", "chlorine", 1)
 util.add_ingredient("se-bio-electrics-data", "salt", 1)
 
 util.add_ingredient("se-holmium-chloride", "hydrogen-chloride", 2)
+util.replace_some_ingredient("se-space-coolant", "copper-plate", 1, "salt", 1)
+util.replace_some_ingredient("se-space-coolant-cryonite", "copper-plate", 1, "salt", 1)
 
 util.add_ingredient("shiveros_advanced_uranium_reprocessing", "salt", 1)
