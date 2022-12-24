@@ -42,6 +42,7 @@ data:extend({
       base_density = 3,
       base_spots_per_km2 = 2,
       regular_rq_factor_multiplier = 2.0,
+      has_starting_area_placement = util.me.starting_patch(),
     },
 
     stage_counts = {15000, 9500, 5500, 2900, 1300, 400, 150, 80},
@@ -71,22 +72,24 @@ data:extend({
 local richness = data.raw.resource["salt"].autoplace.richness_expression  
 local probability = data.raw.resource["salt"].autoplace.probability_expression  
 
--- Modify salt autoplace richness: 
--- After 500 tiles it's standard
--- After 300 tiles it scales up
-data.raw.resource["salt"].autoplace.richness_expression = 
-  richness * noise.if_else_chain(
-      noise.less_than(noise.distance_from(noise.var("x"), noise.var("y"), noise.var("starting_positions")), noise.to_noise_expression(500)),
-      (noise.distance_from(noise.var("x"), noise.var("y"), noise.var("starting_positions")) - 275)/475,
-      1)
+if not util.me.starting_patch() then
+  -- Modify salt autoplace richness: 
+  -- After 500 tiles it's standard
+  -- After 250 tiles it scales up
+  data.raw.resource["salt"].autoplace.richness_expression = 
+    richness * noise.if_else_chain(
+        noise.less_than(noise.distance_from(noise.var("x"), noise.var("y"), noise.var("starting_positions")), noise.to_noise_expression(500)),
+        (noise.distance_from(noise.var("x"), noise.var("y"), noise.var("starting_positions")) - 275)/475,
+        1)
 
-data.raw.resource["salt"].autoplace.probability_expression = 
-  probability * noise.if_else_chain(
-      noise.less_than(noise.distance_from(noise.var("x"), noise.var("y"), noise.var("starting_positions")), noise.to_noise_expression(299)),
-      0,
-      noise.less_than(noise.distance_from(noise.var("x"), noise.var("y"), noise.var("starting_positions")), noise.to_noise_expression(300)),
-      0.3,
-      1)
+  data.raw.resource["salt"].autoplace.probability_expression = 
+    probability * noise.if_else_chain(
+        noise.less_than(noise.distance_from(noise.var("x"), noise.var("y"), noise.var("starting_positions")), noise.to_noise_expression(249)),
+        0,
+        noise.less_than(noise.distance_from(noise.var("x"), noise.var("y"), noise.var("starting_positions")), noise.to_noise_expression(250)),
+        0.3,
+        1)
+end
 
 end
 data:extend({
@@ -111,13 +114,27 @@ data:extend({
     name = "salt",
     result = "salt",
     ingredients = {{type="fluid", name="water", amount=100}},
-    enabled = false,
-    category = mods.Krastorio2 and "fluid-filtration" or "crafting-with-fluid",
-    energy_required = mods.Krastorio2 and 1 or 2,
+    enabled = not not mods["aai-industry"],
+    category = "crafting-with-fluid",
+    energy_required = 2,
   },
 })
 if mods.Krastorio2 then
-  util.add_unlock("kr-fluids-chemistry", "salt")
-else
-  util.add_unlock("fluid-handling", "salt")
+  data:extend({
+    {
+      type = "recipe",
+      name = "salt-filtration",
+      result = "salt",
+      ingredients = {{type="fluid", name="water", amount=100}},
+      enabled = false,
+      category = mods.Krastorio2 and "fluid-filtration",
+      energy_required = 0.4,
+    },
+  })
+end
+if mods.Krastorio2 then
+  util.add_unlock("kr-fluids-chemistry", "salt-filtration")
+end
+if not mods["aai-industry"] then
+  util.add_unlock("automation", "salt")
 end

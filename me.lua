@@ -3,6 +3,21 @@ local me = {}
 me.name = "bzchlorine"
 me.list = {}
 
+function me.starting_patch() 
+  return (
+      me.get_setting("bzchlorine-early-salt") == "mining" or
+      me.get_setting("bzchlorine-early-salt") == "both"
+  )
+end
+
+function me.early_assemblers() 
+  return (
+      me.get_setting("bzchlorine-early-salt") == "assembler" or
+      me.get_setting("bzchlorine-early-salt") == "both" or
+      (not me.salt())
+  )
+end
+
 function me.more() 
   if me.get_setting("bz-all-intermediates") then return true end
   return me.get_setting("bzchlorine-more-intermediates") == "yes"
