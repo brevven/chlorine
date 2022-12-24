@@ -31,7 +31,7 @@ data:extend({
     type = "recipe",
     name = "pcb-substrate",
     results = {
-      {"pcb-substrate", 6},
+      {"pcb-substrate", 12},
     },
     ingredients = {
       {type="fluid", name="epoxy", amount=30},
@@ -45,7 +45,6 @@ data:extend({
 util.add_unlock("advanced-electronics", "pcb-substrate")
 -- These updates should be in data phase
 util.replace_some_ingredient("pcb-substrate", "plastic-bar", 1, "silica", 3, {force=true})
-util.replace_some_ingredient("pcb-substrate", "plastic-bar", 1, "bakelite", 1, {force=true})
 
 if (not mods.bobelectronics and not mods.MDbobelectronics) then
 data:extend({
@@ -57,12 +56,12 @@ data:extend({
     },
     ingredients = util.me.more() and {
       {"pcb-substrate", 2},
-      {"copper-plate", 2},
+      {"copper-plate", 1},
       {"ferric-chloride", 1},
       {type="fluid", name="water", amount=10},
     } or {
       {"pcb-substrate", 2},
-      {"copper-plate", 2},
+      {"copper-plate", 1},
       {type="fluid", name="hydrogen-chloride", amount=15}
     },
     enabled = false,
@@ -70,7 +69,6 @@ data:extend({
     energy_required = 4,
   },
 })
-
 util.add_unlock("advanced-electronics", "pcb")
 
 end

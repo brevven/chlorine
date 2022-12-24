@@ -9,6 +9,8 @@ Date: 2022-12-24
     - Early game salt: New setting to choose one or both of
       From water in fluid-enabled tier 1 assemblers (or tier 0 with AAI Industry) (default)
       A starting area salt patch, and more salt near starting area
+    - Rebalance advanced circuits, they require much lower quantities of raw materials.
+      There still may be future balance tweaks.
     - SE: Less salt in core mining
     - SE: thermofluid basic recipe requires salt
   Features:
