@@ -5,6 +5,7 @@ Date: 2022-12-24
     - SE/K2: Iridium powder can be made in normal chem plant
     - Without "more intermediates", PCB can be made in normal chem plant
   Changes:
+    - Thumbnail tweak
     - SE: Less salt in core mining
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.3
