@@ -45,8 +45,10 @@ if not mods.Krastorio2 then -- consider this handled in enrichment
   util.set_main_product("molten-titanium", "molten-titanium")
 end
 util.add_ingredient("se-steel-ingot", "salt", 2)
-util.add_ingredient("se-iridium-powder", "chlorine", 20)
-util.add_product("se-iridium-powder", {type="fluid", name="chlorine", amount=19, catalyst_amount=19})
+if not mods.Krastorio2 then
+  util.add_ingredient("se-iridium-powder", "chlorine", 20)
+  util.add_product("se-iridium-powder", {type="fluid", name="chlorine", amount=19, catalyst_amount=19})
+end
 
 util.replace_some_ingredient("se-vitamelange-bloom", "sand", 10, "salt", 1)
 util.add_ingredient("se-nutrient-gel", "salt", 1)

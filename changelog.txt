@@ -1,6 +1,9 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.4
-Date: 2022-12-09
+Date: 2022-12-24
+  Fixes:
+    - SE/K2: Iridium powder can be made in normal chem plant
+    - Without "more intermediates", PCB can be made in normal chem plant
   Changes:
     - SE: Less salt in core mining
 ---------------------------------------------------------------------------------------------------

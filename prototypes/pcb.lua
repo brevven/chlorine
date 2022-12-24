@@ -55,11 +55,15 @@ data:extend({
     results = {
       {"pcb", 2},
     },
-    ingredients = {
+    ingredients = util.me.more() and {
       {"pcb-substrate", 2},
       {"copper-plate", 2},
-      util.me.more() and {"ferric-chloride", 1} or {type="fluid", name="hydrogen-chloride", amount=15},
+      {"ferric-chloride", 1},
       {type="fluid", name="water", amount=10},
+    } or {
+      {"pcb-substrate", 2},
+      {"copper-plate", 2},
+      {type="fluid", name="hydrogen-chloride", amount=15}
     },
     enabled = false,
     category = "crafting-with-fluid",
