@@ -8,6 +8,8 @@ Date: 2022-12-24
     - Thumbnail tweak
     - SE: Less salt in core mining
     - SE: thermofluid basic recipe requires salt
+  Features:
+    - SE: delivery cannon for salt
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.3
 Date: 2022-12-05
