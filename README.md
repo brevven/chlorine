@@ -18,10 +18,12 @@ See changelog.txt
 
 ### Localization
 
+- [Sakuro](https://github.com/sakuro) (ja)
+
 ### Testing
 - Berkelear
 - [Sakuro](https://github.com/sakuro)
-- [Xynariz]()
+- [Xynariz](https://github.com/Xynariz)
 
 
 
