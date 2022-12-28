@@ -1,22 +1,10 @@
 local util = require("data-util");
 
-if mods.Krastorio2 then
-  local amt = util.get_amount("electronic-components")
-  util.add_ingredient("electronic-components", "pcb", amt)
-  util.remove_ingredient("electronic-components", "plastic-bar")
+local amt = util.get_amount("advanced-circuit")
+util.add_ingredient("advanced-circuit", "pcb", amt)
+util.remove_ingredient("advanced-circuit", "plastic-bar")
+util.set_ingredient("advanced-circuit", "copper-cable", amt)
 
-  amt = util.get_amount("kr-s-c-electronic-components")
-  util.add_ingredient("kr-s-c-electronic-components", "pcb", amt)
-  util.remove_ingredient("kr-s-c-electronic-components", "plastic-bar")
-
-  local amt_ac = util.get_amount("advanced-circuit")
-  util.set_ingredient("advanced-circuit", "copper-cable", amt_ac)
-else
-  local amt = util.get_amount("advanced-circuit")
-  util.add_ingredient("advanced-circuit", "pcb", amt)
-  util.remove_ingredient("advanced-circuit", "plastic-bar")
-  util.set_ingredient("advanced-circuit", "copper-cable", amt)
-end
 local amt = util.get_amount("advanced-circuit")
 util.set_recipe_time("advanced-circuit", amt*2) -- more steps, so speed up final step
 

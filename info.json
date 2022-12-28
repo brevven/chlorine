@@ -1,6 +1,6 @@
 {
     "name": "bzchlorine",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "factorio_version": "1.1",
     "title": "Salt & Chlorine",
     "author": "Brevven",
@@ -13,7 +13,8 @@
       "? bzlead >= 1.2.0",
       "? bzzirconium >= 0.6.0",
       "? bztungsten >= 0.6.0",
-      "? bzcarbon >= 0.3.0",
+      "? bzcarbon >= 0.5.5",
+      "? bztin >= 0.1.8",
       "? bzgas",
       "? space-exploration >= 0.5.100",
       "? aai-industry",
