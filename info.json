@@ -1,6 +1,6 @@
 {
     "name": "bzchlorine",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "factorio_version": "1.1",
     "title": "Salt & Chlorine",
     "author": "Brevven",
@@ -17,6 +17,7 @@
       "? bzgas",
       "? space-exploration >= 0.5.100",
       "? aai-industry",
+      "(?) aai-loaders",
       "? Krastorio2",
       "? bobelectronics",
       "? MDbobelectronics",
