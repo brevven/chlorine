@@ -52,21 +52,21 @@ data:extend({
     type = "recipe",
     name = "pcb",
     results = {
-      {"pcb", 2},
+      {"pcb", 4},
     },
     ingredients = util.me.more() and {
-      {"pcb-substrate", 2},
+      {"pcb-substrate", 4},
       {"copper-plate", 1},
-      {"ferric-chloride", 1},
-      {type="fluid", name="water", amount=10},
+      {"ferric-chloride", 2},
+      {type="fluid", name="water", amount=20},
     } or {
-      {"pcb-substrate", 2},
+      {"pcb-substrate", 4},
       {"copper-plate", 1},
-      {type="fluid", name="hydrogen-chloride", amount=15}
+      {type="fluid", name="hydrogen-chloride", amount=30}
     },
     enabled = false,
     category = "crafting-with-fluid",
-    energy_required = 4,
+    energy_required = 8,
   },
 })
 util.add_unlock("advanced-electronics", "pcb")
