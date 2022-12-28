@@ -31,12 +31,6 @@ if util.me.early_assemblers() then
         fb.pipe_picture.east.layers[2] = nil
         fb.pipe_picture.west.layers[2] = nil
       end
-
-      log("recipe")
-      log(serpent.dump(recipe))
-      log("fb")
-      log(serpent.dump(fb))
-
     end
   end
   if data.raw["assembling-machine"]["burner-assembling-machine"] then
