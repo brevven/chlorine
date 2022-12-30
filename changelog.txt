@@ -1,8 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.0.8
+Date: 2022-12-29
+  Changes:
+    - Move several recipes into "fluid-recipes" subgroup, so they show up in standard place in GUI.
+---------------------------------------------------------------------------------------------------
 Version: 0.0.7
 Date: 2022-12-28
   Changes:
-    - K2: PCBs used for advanced circuits instead of electronic components.
+    - K2: PCBs used for advanced circuits instead of electronic components
     - Less copper required for PCBs
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.6

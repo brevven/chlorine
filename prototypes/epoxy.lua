@@ -29,6 +29,7 @@ data:extend({
     },
     enabled = false,
     category = "chemistry",
+    subgroup = "fluid-recipes",
     energy_required = 3,
   },
 })

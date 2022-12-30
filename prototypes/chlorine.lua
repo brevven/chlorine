@@ -61,6 +61,7 @@ data:extend({
     ingredients = {{"salt", 2}},
     enabled = false,
     category = "chemistry",
+    subgroup = "fluid-recipes",
     energy_required = 0.5,
   },
   {
@@ -73,6 +74,7 @@ data:extend({
     },
     enabled = false,
     category = "chemistry",
+    subgroup = "fluid-recipes",
     energy_required = 10,
   },
 })
@@ -91,6 +93,7 @@ data:extend({
     },
     enabled = false,
     category = "chemistry",
+    subgroup = "fluid-recipes",
     energy_required = 1,
   },
 })
@@ -135,6 +138,7 @@ data:extend({
     },
     enabled = false,
     category = "chemistry",
+    subgroup = "fluid-recipes",
     energy_required = 3,
   },
 })
