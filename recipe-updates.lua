@@ -6,7 +6,8 @@ util.remove_ingredient("advanced-circuit", "plastic-bar")
 util.set_ingredient("advanced-circuit", "copper-cable", amt)
 
 local amt = util.get_amount("advanced-circuit")
-util.set_recipe_time("advanced-circuit", amt*2) -- more steps, so speed up final step
+local factor = mods.Krastorio2 and 1 or 2
+util.set_recipe_time("advanced-circuit", amt*factor) -- more steps, so speed up final step
 
 if util.me.more() then
   util.add_ingredient("accumulator", "ferric-chloride", 2)
