@@ -3,6 +3,8 @@ Version: 0.0.9
 Date: 2022-12-30
   Changes:
     - K2: Final advanced circuit recipe is faster now
+  Fixes:
+    - ModMash Splinter Subspace Logistics compatibility fix
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.8
 Date: 2022-12-29
