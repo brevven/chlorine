@@ -19,6 +19,7 @@ See changelog.txt
 ### Localization
 
 - [Sakuro](https://github.com/sakuro) (ja)
+- [CV514](https://github.com/CV514) (ru)
 
 ### Testing
 - Berkelear
