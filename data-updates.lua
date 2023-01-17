@@ -5,7 +5,7 @@ require("map-gen-preset-updates")
 -- require("strange-matter")
 -- require("compatibility/248k")
 require("compatibility/bob")
-
+require("compatibility/crafting-efficiency")
 require("prototypes/assembler-updates")
 
 local util = require("data-util")
