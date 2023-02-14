@@ -3,7 +3,7 @@ local me = {}
 me.name = "bzchlorine"
 me.list = {}
 -- Recipes with very specific ratios are deliberately excluded
-me.recipes = {"chlorine", "epoxy", "pcb-substrate", "pcb", "bakelite-hcl"}
+me.recipes = {"chlorine", "epoxy", "pcb-substrate", "pcb", "bakelite-hcl", "salt"}
 
 function me.starting_patch() 
   return (
