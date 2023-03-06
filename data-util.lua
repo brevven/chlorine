@@ -1,7 +1,6 @@
 -- WARNING WARNING WARNING
 -- This file will be overwritten in mod zipfiles, edit bzlib/data-util.lua
 -- WARNING WARNING WARNING
---
 
 local me = require("me")
 local util = {}
@@ -943,6 +942,23 @@ function util.set_item_subgroup(item, subgroup, options)
   end
 end
 
+function util.add_icon(recipe_name, icon, options)
+  if not should_force(options) and bypass(recipe_name) then return end
+  if data.raw.recipe[recipe_name] then
+    me.add_modified(recipe_name)
+    if not (data.raw.recipe[recipe_name].icons and #(data.raw.recipe[recipe_name].icons) > 0) then
+      data.raw.recipe[recipe_name].icons = {{
+        icon=data.raw.recipe[recipe_name].icon,
+        icon_size=data.raw.recipe[recipe_name].icon_size,
+        icon_mipmaps=data.raw.recipe[recipe_name].icon_mipmaps,
+      }}
+      data.raw.recipe[recipe_name].icon = nil
+      data.raw.recipe[recipe_name].icon_size = nil
+    end
+    table.insert(data.raw.recipe[recipe_name].icons, icon)
+  end
+end
+
 -- Set recipe icons
 function util.set_icons(recipe_name, icons, options)
   if not should_force(options) and bypass(recipe_name) then return end
@@ -963,6 +979,19 @@ function util.set_item_icons(item_name, icons)
   end
 end
 
+-- Gets an item or fluid icon
+function util.get_item_or_fluid_icon(name)
+  icon = ""
+  if data.raw.item[name] then 
+    icon = data.raw.item[name].icon 
+    if not icon then icon = data.raw.item[name].icons[1].icon end
+  elseif data.raw.fluid[name] then
+    icon = data.raw.fluid[name].icon 
+    if not icon then icon = data.raw.fluid[name].icons[1].icon end
+  end
+  return icon
+end
+
 function util.set_to_founding(recipe, options)
   util.set_category(recipe, "founding", options)
   util.set_subgroup(recipe, "foundry-intermediate", options)
@@ -980,7 +1009,8 @@ function util.add_crafting_category(entity_type, entity, category)
    end
 end
 
-function util.add_to_ingredient(recipe, ingredient, amount)
+function util.add_to_ingredient(recipe, ingredient, amount, options)
+  if not should_force(options) and bypass(recipe_name) then return end
   if data.raw.recipe[recipe] then
     add_to_ingredient(data.raw.recipe[recipe], ingredient, amount)
     add_to_ingredient(data.raw.recipe[recipe].normal, ingredient, amount)
