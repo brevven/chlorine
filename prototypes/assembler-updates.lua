@@ -33,7 +33,7 @@ if util.me.early_assemblers() then
       end
     end
   end
-  if data.raw["assembling-machine"]["burner-assembling-machine"] then
+  if data.raw["assembling-machine"]["burner-assembling-machine"] and not mods.bobassembly then
     util.add_crafting_category("assembling-machine", "burner-assembling-machine", "crafting-with-fluid")
     data.raw["assembling-machine"]["burner-assembling-machine"].fluid_boxes = futil.table.deepcopy(data.raw["assembling-machine"]["assembling-machine-2"].fluid_boxes)
     for i, fb in pairs(data.raw["assembling-machine"]["burner-assembling-machine"].fluid_boxes) do
