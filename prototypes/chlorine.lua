@@ -182,7 +182,7 @@ if mods.bzgas then
       name="bakelite-hcl",
       results = {{"bakelite", 3}},
       ingredients = {
-        {"phenol", 1},
+        {data.raw.item["phenol"] and "phenol" or "coal", 1},
         {type="fluid", name="formaldehyde", amount=10},
         {type="fluid", name="hydrogen-chloride", amount=5},
       },
