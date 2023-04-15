@@ -130,33 +130,35 @@ function util.k2matter(params)
   if not params.k2matter.minimum_conversion_quantity then
     params.k2matter.minimum_conversion_quantity = 10
   end
-  data:extend(
-      {
+  if not data.raw.technology[params.k2matter.unlocked_by_technology] then
+    data:extend(
         {
-          type = "technology",
-          name = params.k2matter.unlocked_by_technology,
-          icons =
           {
+            type = "technology",
+            name = params.k2matter.unlocked_by_technology,
+            icons =
             {
-              icon = util.k2assets().."/technologies/matter-"..params.k2baseicon..".png",
-              icon_size = 256,
+              {
+                icon = util.k2assets().."/technologies/matter-"..params.k2baseicon..".png",
+                icon_size = 256,
+              },
+              params.icon,
             },
-            params.icon,
+            prerequisites = {"kr-matter-processing"},
+            unit =
+            {
+              count = 350,
+              ingredients =
+              {
+                {"production-science-pack", 1},
+                {"utility-science-pack", 1},
+                {"matter-tech-card", 1}
+              },
+              time = 45,
+            }
           },
-          prerequisites = {"kr-matter-processing"},
-          unit =
-          {
-            count = 350,
-            ingredients =
-            {
-              {"production-science-pack", 1},
-              {"utility-science-pack", 1},
-              {"matter-tech-card", 1}
-            },
-            time = 45,
-          }
-        },
-      })
+        })
+  end
   matter.createMatterRecipe(params.k2matter)
 end
 
