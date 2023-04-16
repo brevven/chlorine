@@ -1,9 +1,23 @@
 local resource_autoplace = require('resource-autoplace');
 local noise = require('noise');
 
+local futil = require("util");
 local util = require("data-util");
 
 if util.me.salt() then
+
+
+local particle = futil.table.deepcopy(data.raw["optimized-particle"]["stone-particle"])
+particle.name = "salt-particle"
+
+for i, picture in ipairs(particle.pictures) do
+  local tint = {r=1, g=1, b=1, a=0}
+  picture.tint = tint
+  picture.hr_version.tint = tint
+end
+
+data:extend({particle})
+
 data:extend({
 	{
     type = "autoplace-control",
@@ -29,7 +43,7 @@ data:extend({
     minable =
     {
       hardness = 1,
-      mining_particle = "copper-ore-particle",
+      mining_particle = "salt-particle",
       mining_time = 0.5,
       result = "salt"
     },

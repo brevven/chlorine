@@ -3,6 +3,8 @@ Version: 0.1.2
 Date: 2023-04-16
   Features:
     - K2 matter
+  Fixes:
+    - Mining particle graphics update
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.1
 Date: 2023-03-28
