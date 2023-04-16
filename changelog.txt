@@ -3,6 +3,8 @@ Version: 0.1.2
 Date: 2023-04-16
   Features:
     - K2 matter
+  Changes:
+    - K2 salt water electrolysis time cut in half (due to higher chlorine demands)
   Fixes:
     - Mining particle graphics update
 ---------------------------------------------------------------------------------------------------
