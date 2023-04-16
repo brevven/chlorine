@@ -22,6 +22,7 @@ See changelog.txt
 
 - [Sakuro](https://github.com/sakuro) (ja)
 - [CV514](https://github.com/CV514) (ru)
+- [Klarkxy](https://github.com/klarkxy) (zh-CN)
 
 ### Testing
 - Berkelear
