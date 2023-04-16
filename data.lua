@@ -3,6 +3,8 @@ require("prototypes/chlorine")
 require("prototypes/epoxy")
 require("prototypes/pcb")
 
+require("matter")
+
 local util = require("data-util");
 
 if util.se6() then
