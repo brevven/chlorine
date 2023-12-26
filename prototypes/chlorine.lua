@@ -197,7 +197,7 @@ if mods.bzgas then
     }
   })
   if mods.Krastorio2 then
-    util.add_unlock("advanced-chemistry", "bakelite-hcl")
+    util.add_unlock("kr-advanced-chemistry", "bakelite-hcl")
   else
     util.add_unlock("chlorine-processing", "bakelite-hcl")
   end
