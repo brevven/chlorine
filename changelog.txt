@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.1.5
+Date: 2024-03-24
+  Changes:
+    - K2 + SE: Cut the time for salt water electrolysis to balance energy requirements to be close 
+      to what they were prior to SE changes. As of now the time is 1.25s, down from 3.5s; both at
+      5.17MW. Before the SE changes, it was 2.5s at 2.58MW.
+---------------------------------------------------------------------------------------------------
 Version: 0.1.4
 Date: 2023-04-23
   Fixes:

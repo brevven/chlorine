@@ -80,7 +80,11 @@ data:extend({
 })
 else
   util.replace_ingredient("kr-water-electrolysis", "sand", "salt", 2)
-  util.multiply_time("kr-water-electrolysis", 0.5)
+  if util.se6() then
+    util.multiply_time("kr-water-electrolysis", 5.0/28)
+  else
+    util.multiply_time("kr-water-electrolysis", 0.5)
+  end
 end
 data:extend({
   {
